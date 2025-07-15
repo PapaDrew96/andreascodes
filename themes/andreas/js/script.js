@@ -65,44 +65,52 @@ jQuery(document).ready(function ($) {
     );
   });
 
-  const snippets = document.querySelectorAll('.code-snippet-card-wrapper');
+  const snippets = document.querySelectorAll('.snippet-card');
 
-	snippets.forEach((snippet, index) => {
-		const directions = [
-			{ x: 0, y: -120 }, // up
-			{ x: 0, y: 120 },  // down
-			{ x: -120, y: 0 }, // left
-			{ x: 120, y: 0 },  // right
-		];
-		const dir = directions[index % directions.length];
-		const rotateRand = gsap.utils.random(-8, 8);
+snippets.forEach((snippet, index) => {
+	// Entrance direction and subtle tilt
+	const xOffset = gsap.utils.random(-100, 100);
+	const yOffset = gsap.utils.random(-150, 150);
+	const rotateX = gsap.utils.random(-10, 10);
+	const rotateY = gsap.utils.random(-10, 10);
 
-		gsap.fromTo(snippet,
-			{
-				opacity: 0,
-				x: dir.x,
-				y: dir.y,
-				rotate: rotateRand,
-				scale: 0.95,
-				filter: 'blur(4px)'
+	gsap.fromTo(
+		snippet,
+		{
+			opacity: 0,
+			x: xOffset,
+			y: yOffset,
+			rotateX,
+			rotateY,
+			scale: 0.9,
+			filter: 'blur(6px)',
+			transformPerspective: 800,
+			transformOrigin: 'center'
+		},
+		{
+			opacity: 1,
+			x: 0,
+			y: 0,
+			rotateX: 0,
+			rotateY: 0,
+			scale: 1,
+			filter: 'blur(0px)',
+			duration: 1.6,
+			ease: 'power4.out',
+			scrollTrigger: {
+				trigger: snippet,
+				start: 'top 85%',
+				toggleActions: 'play none none none'
 			},
-			{
-				opacity: 1,
-				x: 0,
-				y: 0,
-				rotate: 0,
-				scale: 1,
-				filter: 'blur(0px)',
-				duration: 1.4,
-				ease: 'expo.out',
-				scrollTrigger: {
-					trigger: snippet,
-					start: 'top 90%',
-					toggleActions: 'play none none none'
-				}
-			}
-		);
-	});
+			delay: index * 0.1
+		}
+	);
+});
 
+Fancybox.bind("[data-fancybox='project-gallery']", {
+					Toolbar: false,
+					animated: true,
+					dragToClose: true
+				});
 	
 });

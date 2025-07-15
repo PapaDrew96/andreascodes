@@ -20,7 +20,7 @@
                         </div>
 
                         <div class="snippet-body">
-                            <code><?php echo esc_html( get_the_content() ); ?></code>
+                            <code><?php echo esc_html( get_the_excerpt() ); ?></code>
                         </div>
 
                         <?php
