@@ -64,5 +64,45 @@ jQuery(document).ready(function ($) {
       }
     );
   });
+
+  const snippets = document.querySelectorAll('.code-snippet-card-wrapper');
+
+	snippets.forEach((snippet, index) => {
+		const directions = [
+			{ x: 0, y: -120 }, // up
+			{ x: 0, y: 120 },  // down
+			{ x: -120, y: 0 }, // left
+			{ x: 120, y: 0 },  // right
+		];
+		const dir = directions[index % directions.length];
+		const rotateRand = gsap.utils.random(-8, 8);
+
+		gsap.fromTo(snippet,
+			{
+				opacity: 0,
+				x: dir.x,
+				y: dir.y,
+				rotate: rotateRand,
+				scale: 0.95,
+				filter: 'blur(4px)'
+			},
+			{
+				opacity: 1,
+				x: 0,
+				y: 0,
+				rotate: 0,
+				scale: 1,
+				filter: 'blur(0px)',
+				duration: 1.4,
+				ease: 'expo.out',
+				scrollTrigger: {
+					trigger: snippet,
+					start: 'top 90%',
+					toggleActions: 'play none none none'
+				}
+			}
+		);
+	});
+
 	
 });

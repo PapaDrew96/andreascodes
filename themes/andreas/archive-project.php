@@ -4,6 +4,11 @@
 	<div class="container">
 		<h1 class="section-heading text-center mb-5">All Projects</h1>
 
+		 <div class="container">
+            <?php get_template_part( 'template-parts/global/tech-stack-filter' ); ?>
+
+        </div>
+
 		<div class="row g-4 project-grid">
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<div class="col-md-6 project-card-wrapper">
@@ -42,7 +47,7 @@
 								</div>
 							<?php endif; ?>
 
-							<a href="<?php the_permalink(); ?>" class="btn btn-sm mt-4 assign-btn">View Project</a>
+							<a target="_blank" href="<?php the_permalink(); ?>" class="btn btn-sm mt-4 assign-btn">View Project</a>
 						</div>
 					</div>
 				</div>
