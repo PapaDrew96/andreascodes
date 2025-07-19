@@ -36,6 +36,7 @@
 									?>
 										<span class="stack-item">
 											<img 
+												class="magnetic"
 												src="<?php echo esc_url( $icon['url'] ); ?>" 
 												alt="<?php echo esc_attr( $term->name ); ?>" 
 												title="<?php echo esc_attr( $term->name ); ?>" 

@@ -33,7 +33,7 @@
                                 ?>
                                     <span class="tag d-flex align-items-center gap-1">
                                         <?php if ( $icon ) : ?>
-                                            <img src="<?php echo esc_url( $icon['url'] ); ?>" alt="" width="16" height="16">
+                                            <img class="magnetic" src="<?php echo esc_url( $icon['url'] ); ?>" alt="" width="16" height="16">
                                         <?php endif; ?>
                                         <?php echo esc_html( $term->name ); ?>
                                     </span>

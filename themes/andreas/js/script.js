@@ -1,5 +1,32 @@
 jQuery(document).ready(function ($) {
 
+	
+  const header = document.querySelector('.site-header');
+  let lastScrollY = window.scrollY;
+
+  function handleScroll() {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll <= 10) {
+      header.classList.remove('hidden', 'scrolled-up');
+      header.classList.add('at-top');
+    } else if (currentScroll > lastScrollY) {
+      // Scrolling down
+      header.classList.remove('scrolled-up', 'at-top');
+      header.classList.add('hidden');
+    } else {
+      // Scrolling up
+      header.classList.remove('hidden', 'at-top');
+      header.classList.add('scrolled-up');
+    }
+
+    lastScrollY = currentScroll;
+  }
+
+  window.addEventListener('scroll', handleScroll);
+
+
+
 	const fadeTargets = document.querySelectorAll('.fade-in');
 
   fadeTargets.forEach((el) => {
@@ -134,5 +161,7 @@ Fancybox.bind("[data-fancybox='project-gallery']", {
 					animated: true,
 					dragToClose: true
 				});
+
+
 	
 });

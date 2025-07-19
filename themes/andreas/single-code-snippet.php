@@ -16,7 +16,7 @@ $tech_terms = get_the_terms( get_the_ID(), 'tech_stack' );
           ?>
             <span class="tag d-flex align-items-center gap-1">
               <?php if ( $icon ) : ?>
-                <img src="<?php echo esc_url( $icon['url'] ); ?>" width="18" height="18" alt="<?php echo esc_attr( $term->name ); ?>">
+                <img src="<?php echo esc_url( $icon['url'] ); ?>" width="22" height="22" alt="<?php echo esc_attr( $term->name ); ?>">
               <?php endif; ?>
               <?php echo esc_html( $term->name ); ?>
             </span>
@@ -30,7 +30,7 @@ $tech_terms = get_the_terms( get_the_ID(), 'tech_stack' );
     </div>
 
     <div class="mt-5 text-center">
-      <a href="<?php echo esc_url( get_post_type_archive_link( 'code-snippet' ) ); ?>" class="btn btn-outline-dark rounded-pill px-4 py-2">← Back to Snippets</a>
+      <a href="<?php echo esc_url( get_post_type_archive_link( 'code-snippet' ) ); ?>" class="btn btn-outline-dark rounded-pill px-4 py-2 magnetic">← Back to Snippets</a>
     </div>
   </div>
 </section>

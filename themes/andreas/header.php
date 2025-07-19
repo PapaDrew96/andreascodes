@@ -26,7 +26,8 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'andreas' ); ?></a>
 
 	<header id="masthead" class="site-header py-3 border-bottom ">
-	<div class="container d-flex justify-content-between align-items-center">
+	<div class="container ">
+		<div class="d-flex justify-content-between align-items-center">
 		<div class="site-branding d-flex align-items-center gap-3">
 			<?php the_custom_logo(); ?>
 
@@ -51,7 +52,7 @@
 			</button>
 
 		<nav id="site-navigation" class="main-navigation">
-	<div class="nav-wrapper d-flex align-items-center gap-4 ms-auto">
+		<div class="nav-wrapper d-flex align-items-center gap-4 ms-auto">
 		<?php
 		wp_nav_menu( [
 			'theme_location' => 'menu-1',
@@ -69,6 +70,6 @@
 </nav>
 
 	</div>
-	
+	</div>
 </header>
 

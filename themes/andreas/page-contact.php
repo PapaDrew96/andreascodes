@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<section class="contact-section py-5">
+<section class="contact-section py-5 fade-in">
   <div class="container">
     <div class="text-center mb-5">
       <h1 class="display-5">Let’s Work Together</h1>

@@ -105,23 +105,49 @@ a:hover {
 ================================= */
 .site-header {
 	background-color: var(--bg-color);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-	transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 	position: sticky;
 	top: 0;
 	z-index: 1000;
+	transition:
+		background-color 0.4s ease,
+		color 0.4s ease,
+		box-shadow 0.4s ease,
+		transform 0.4s ease,
+		opacity 0.4s ease;
+	will-change: transform, opacity;
+	
 }
 
+/* When scrolling down – hide header */
+.site-header.hidden {
+	transform: translateY(-100%);
+	opacity: 0;
+}
+
+/* When scrolling up – show with partial opacity */
+.site-header.scrolled-up {
+	transform: translateY(0);
+	opacity: 0.7;
+}
+
+/* At the very top – full opacity and no shift */
+.site-header.at-top {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+
 .site-header .custom-logo-link {
-    width: 60px;
-    height: 60px;
+    /* width: 50px;
+    height: 50px; */
     
     border-radius: 50%;
 }
 .site-header .custom-logo-link img{
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border: 2px solid black;
     border-radius: 50%;
 }
@@ -129,7 +155,6 @@ a:hover {
 .site-header .site-title {
     display: none;
 }
-
 
 
 /* Branding layout */
@@ -622,11 +647,7 @@ a:hover {
 	object-fit: contain;
 }
 
-/* Dark mode stack fix */
-.dark-mode .project-stack .stack-item {
-	background-color: rgba(255, 255, 255, 0.1);
-	color: #eee;
-}
+
 
 /* View All Button */
 .frontpage-projects-section .btn-outline-dark {
@@ -735,7 +756,7 @@ a:hover {
 	gap: 0.4rem;
 	font-size: 0.75rem;
 	background-color: #f1f1f1;
-	color: #444;
+	color: var(--accent);
 	border-radius: 999px;
 	padding: 0.3rem 0.6rem;
 }
@@ -1144,11 +1165,12 @@ a:hover {
 }
 
 .snippet-tags .tag {
-	background: rgba(255, 255, 255, 0.1);
-	color: #ccc;
+	background: rgba(255, 255, 255, 0.5);
+	color: var(--accent);
 	padding: 0.25rem 0.75rem;
 	border-radius: 999px;
-	font-size: 0.75rem;
+	font-size: 14px;
+	font-family: var(--secondary-font-family);
 }
 
 .view-snippet-btn {
@@ -1365,6 +1387,11 @@ a:hover {
   background-color: #e9ecef;
   font-size: 0.875rem;
   transition: all 0.3s ease;
+  color: var(--accent);
+}
+
+.project-stack .stack-item span {
+	color: var(--accent) !important;
 }
 
 .project-stack .stack-item img {
@@ -1373,8 +1400,12 @@ a:hover {
 }
 
 .project-stack .stack-item:hover {
-  background-color: var(--accent);
-  color: white;
+background-color: var(--accent); 
+}
+
+.project-stack .stack-item:hover span {
+  /* background-color: var(--accent); */
+  color: white !important;
 }
 
 .project-highlights h3,
@@ -1433,4 +1464,14 @@ a:hover {
   .project-links .btn {
     font-size: 0.95rem;
   }
+}
+
+
+.custom-code-snippet-block pre {
+	background:none;
+}
+
+.custom-code-snippet-block pre code{
+	color: #fff;
+	font-size: 16px;
 }

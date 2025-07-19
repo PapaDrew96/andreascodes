@@ -10,6 +10,8 @@
  */
 
 $footer_socials        = get_field('social_links','option');
+$primar_menu_label    = get_field('primary_menu_label','option');
+$secondary_menu_label = get_field('secondary_menu_label','option');
 
 ?>
 
@@ -17,7 +19,7 @@ $footer_socials        = get_field('social_links','option');
 	<div class="container">
 		<div class="row justify-content-between align-items-start g-5">
 			<div class="col-md-4">
-				<h5 class="mb-3">Quick Links</h5>
+				<h5 class="mb-3"><?php echo esc_html($primar_menu_label); ?></h5>
 				<?php
 				wp_nav_menu([
 					'theme_location' => 'footer-primary', // must match the register_nav_menus key
@@ -28,7 +30,7 @@ $footer_socials        = get_field('social_links','option');
 			</div>
 
 			<div class="col-md-4">
-				<h5 class="mb-3">Useful Links</h5>
+				<h5 class="mb-3"><?php echo esc_html($secondary_menu_label); ?></h5>
 				<?php
 				wp_nav_menu([
 					'theme_location' => 'footer-secondary',

@@ -78,7 +78,7 @@ $project_role = get_field('project_role');
         <div class="project-links sticky-top pt-3">
           <h5 class="mb-3">Links</h5>
           <?php if ($live_url): ?>
-            <a href="<?php echo esc_url($live_url); ?>" class="btn btn-primary w-100 mb-3" target="_blank">View Live</a>
+            <a href="<?php echo esc_url($live_url); ?>" class="btn btn-primary w-100 mb-3 magnetic" target="_blank">View Live</a>
           <?php endif; ?>
          
         </div>

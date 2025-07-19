@@ -3,6 +3,8 @@ namespace WPCoreBoot\Blocks;
 
 class RegisterBlocks {
 	public static function register() {
+		// error_log('🟢 RegisterBlocks::register running');
+
 		if ( ! function_exists( 'acf_register_block_type' ) ) {
 			return;
 		}
