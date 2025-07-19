@@ -7,7 +7,7 @@ $background  = get_field('hero_background');
 $bg_url      = $background ? $background['url'] : '';
 ?>
 
-<section class="hero-section d-flex align-items-center text-center" style="background-image: url('<?php echo esc_url($bg_url); ?>');">
+<section class="hero-section d-flex align-items-center text-center fade-in" style="background-image: url('<?php echo esc_url($bg_url); ?>');">
 	<div class="container">
 		<div class="hero-content mx-auto">
 			<?php if ($headline): ?>
@@ -19,7 +19,7 @@ $bg_url      = $background ? $background['url'] : '';
 			<?php endif; ?>
 
 			<?php if ($cta_text && $cta_link): ?>
-				<a href="<?php echo esc_url($cta_link); ?>" class="btn btn-primary btn-lg assign-btn">
+				<a href="<?php echo esc_url($cta_link); ?>" class="btn btn-primary btn-lg assign-btn magnetic">
 					<?php echo esc_html($cta_text); ?>
 				</a>
 			<?php endif; ?>

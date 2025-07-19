@@ -16,7 +16,7 @@ if ( ! empty( $tech_terms ) && ! is_wp_error( $tech_terms ) ) :
 
 	<?php foreach ( $tech_terms as $term ) : ?>
 		<a href="<?php echo esc_url( add_query_arg( 'tech_stack', $term->slug ) ); ?>"
-		   class="btn btn-sm <?php echo $current === $term->slug ? 'btn-dark' : 'btn-outline-dark'; ?>">
+		   class="btn btn-sm magnetic <?php echo $current === $term->slug ? 'btn-dark' : 'btn-outline-dark'; ?>">
 			<?php
 			$icon = get_field( 'icon', 'tech_stack_' . $term->term_id );
 			if ( $icon ) {

@@ -3,7 +3,7 @@ $section_title = get_field('services_title');
 ?>
 
 <?php if ( have_rows('services_list') ): ?>
-<section class="services-section py-5">
+<section class="services-section py-5 fade-in">
 	<div class="container">
 		<?php if ( $section_title ): ?>
 			<h2 class="section-heading text-center mb-5"><?php echo esc_html( $section_title ); ?></h2>

@@ -8,7 +8,7 @@ $bg_url = $cta_background['url'] ?? '';
 ?>
 
 <?php if ( $cta_heading ): ?>
-<section class="frontpage-cta-section" style="background-image: url('<?php echo esc_url($bg_url); ?>');">
+<section class="frontpage-cta-section fade-in" style="background-image: url('<?php echo esc_url($bg_url); ?>');">
 	<div class="cta-overlay d-flex flex-column justify-content-center text-center text-white">
 		<h2 class="cta-heading"><?php echo esc_html($cta_heading); ?></h2>
 

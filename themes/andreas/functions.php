@@ -47,12 +47,12 @@ function andreas_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus(
-		array(
-			'menu-1' => esc_html__( 'Primary', 'andreas' ),
-			'footer-menu'  => __( 'Footer Menu', 'andreas' ),
-		)
-	);
+	register_nav_menus( array(
+	'primary'           => esc_html__( 'Primary Menu', 'andreas' ),
+	'footer-primary'    => esc_html__( 'Footer Menu', 'andreas' ),
+	'footer-secondary'  => esc_html__( 'Footer Menu Secondary', 'andreas' ),
+	) );
+
 
 	/*
 		* Switch default core markup for search form, comment form, and comments
@@ -216,6 +216,18 @@ function andreas_scripts() {
 				null,
 				true
 			);
+
+			
+
+			// Shader cursor script (you’ll create this)
+			wp_enqueue_script(
+				'cursor',
+				get_template_directory_uri() . '/js/cursor.js',
+				[],
+				_S_VERSION,
+				true
+			);
+
 
 	// Comment reply
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

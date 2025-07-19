@@ -42,7 +42,7 @@
                         <?php endif; ?>
 
                         <!-- ✅ View Snippet Button -->
-                        <div class="mt-3">
+                        <div class="mt-3 px-3">
                             <a target="_blank" href="<?php the_permalink(); ?>" class="btn btn-sm btn-outline-primary rounded-pill px-3 view-snippet-btn">
                                 View Snippet
                             </a>

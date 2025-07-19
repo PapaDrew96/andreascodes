@@ -20,7 +20,18 @@ $footer_socials        = get_field('social_links','option');
 				<h5 class="mb-3">Quick Links</h5>
 				<?php
 				wp_nav_menu([
-					'theme_location' => 'footer-menu',
+					'theme_location' => 'footer-primary', // must match the register_nav_menus key
+					'menu_class'     => 'list-unstyled footer-menu',
+					'container'      => false,
+				]);
+				?>
+			</div>
+
+			<div class="col-md-4">
+				<h5 class="mb-3">Useful Links</h5>
+				<?php
+				wp_nav_menu([
+					'theme_location' => 'footer-secondary',
 					'menu_class'     => 'list-unstyled footer-menu',
 					'container'      => false,
 				]);
@@ -56,7 +67,7 @@ $footer_socials        = get_field('social_links','option');
 			</div>
 		</div> -->
 
-		<div class="text-center mt-4 small text-muted copyright">
+		<div class="text-left mt-4 small text-muted copyright">
 			&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
 		</div>
 	</div>

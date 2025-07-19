@@ -7,7 +7,7 @@ $projects = new WP_Query([
 ?>
 
 <?php if ( $projects->have_posts() ) : ?>
-<section class="frontpage-projects-section py-5">
+<section class="frontpage-projects-section py-5 fade-in">
 	<div class="container">
 		<h2 class="section-heading text-center mb-5">Featured Projects</h2>
 

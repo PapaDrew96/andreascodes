@@ -7,7 +7,7 @@ $snippets = new WP_Query([
 ?>
 
 <?php if ( $snippets->have_posts() ) : ?>
-<section class="frontpage-snippets-section py-5">
+<section class="frontpage-snippets-section py-5 fade-in">
 	<div class="container">
 		<h2 class="section-heading text-center mb-4">Developer Snippets</h2>
 
