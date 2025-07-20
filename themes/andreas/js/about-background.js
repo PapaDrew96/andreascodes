@@ -27,8 +27,8 @@ function drawLightning(x1, y1, x2, y2, segments = 50) {
   }
 
   ctx.lineTo(x2, y2);
-  ctx.strokeStyle = "rgba(0, 255, 0, 0.8)";
-  ctx.lineWidth = 1.5;
+  ctx.strokeStyle = "rgba(0, 255, 0, 0.5)";
+  ctx.lineWidth = 2;
   ctx.shadowColor = "#00ff00";
   ctx.shadowBlur = 15;
   ctx.stroke();
@@ -42,7 +42,7 @@ document.addEventListener("click", (e) => {
   const endX = e.clientX;
   const endY = e.clientY;
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 2; i++) {
     const delay = i * 100; // 0ms, 100ms, 200ms
     setTimeout(() => {
       const startX = Math.random() * canvas.width;
@@ -51,6 +51,6 @@ document.addEventListener("click", (e) => {
     }, delay);
   }
 
-  // Clear everything after 1 second
-  setTimeout(clearCanvas, 1000);
+  // Clear everything after x seconds
+  setTimeout(clearCanvas, 3000);
 });
