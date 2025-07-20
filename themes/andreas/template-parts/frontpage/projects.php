@@ -47,7 +47,7 @@ $projects = new WP_Query([
 		</div>
 
 		<div class="text-center mt-5 custom-btn">
-			<a target="_blank" href="<?php echo esc_url( home_url('/projects') ); ?>" class="btn btn-outline-dark rounded-pill px-4 py-2">See All Projects →</a>
+			<a target="_blank" href="<?php echo esc_url( home_url('/projects') ); ?>" class="btn btn-outline-dark rounded-pill px-4 py-2 magnetic">See All Projects →</a>
 		</div>
 	</div>
 </section>

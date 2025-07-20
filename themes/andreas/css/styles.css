@@ -1244,8 +1244,12 @@ a:hover {
 /* 🔹 Global Layout */
 .about-section {
   padding: 5rem 0;
-  background-color: var(--bg-color, #f8f9fa);
+  background-color: rgba(0, 0, 0, 0.9);
   font-family: var(--font-family, 'Roboto Mono', monospace);
+}
+canvas#particles-js {
+  mix-blend-mode: screen;
+  background-color: #000;
 }
 
 /* 🔹 Headings and Section Titles */
@@ -1253,16 +1257,30 @@ a:hover {
 .about-section h2 {
   font-weight: 700;
   font-family: var(--font-family, 'Roboto Mono', monospace);
-  color: var(--heading-color, #111);
+  color: white;
   margin-bottom: 2rem;
 }
 
 /* 🔹 Intro Section */
-.intro-section img {
-  max-width: 300px;
+.about-section .intro-section img {
+  max-width: 400px;
   border-radius: 12px;
   margin-top: 2rem;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.about-section .intro-section p {
+	color: white;
+}
+
+.about-section .fun-text {
+  transition: opacity 0.4s ease;
+}
+
+.about-section .fun-text.hide {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 /* 🔹 Tech Icons */
@@ -1300,11 +1318,20 @@ a:hover {
 }
 
 /* 🔹 Timeline */
-.timeline li {
+.about-section .timeline li {
   position: relative;
   padding-left: 1.5rem;
-  border-left: 3px solid var(--accent, #0d6efd);
+  border-left: 3px solid #fff;
   margin-bottom: 1.5rem;
+  color: white !important;
+}
+
+.about-section .timeline li p {
+	color: white !important;
+}
+
+.about-section .timeline li small {
+	color: white !important;
 }
 
 .timeline li::before {
@@ -1333,6 +1360,10 @@ a:hover {
 
 
 /* 🔹 Final CTA */
+.about-section .final-cta-section p {
+	color:white !important;
+}
+
 .final-cta-section .btn {
   font-family: var(--secondary-font-family) !important;
   font-weight: 600;
@@ -1347,6 +1378,7 @@ a:hover {
 .final-cta-section .btn:hover {
   background-color: #111 !important;
   color: #fff !important;
+  border-color: #fff !important;
   
 }
 

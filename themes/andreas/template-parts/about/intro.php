@@ -1,9 +1,9 @@
 
 		<?php
 		$intro         = get_field('about_intro');
-$intro_title   = $intro['title'] ?? '';
-$intro_text    = $intro['text'] ?? '';
-$intro_image   = $intro['image'] ?? '';
+		$intro_title   = $intro['title'] ?? '';
+		$intro_text    = $intro['text'] ?? '';
+		$intro_image   = $intro['image'] ?? '';
 		?>
 		
 		<!-- 🔹 Intro Section -->

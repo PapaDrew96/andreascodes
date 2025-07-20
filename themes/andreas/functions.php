@@ -219,6 +219,27 @@ function andreas_scripts() {
 		wp_localize_script( 'catch-the-stack', 'STACK_ICONS', $stack_icons );
 	}
 
+	
+   
+	wp_enqueue_script(
+            'particlesjs',
+            'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js',
+            array(),
+            null,
+            true
+        );
+
+        wp_enqueue_script(
+            'particlesjs-config',
+            get_template_directory_uri() . '/js/about-background.js',
+            array('particlesjs'),
+            null,
+            true
+        );
+
+
+
+	
 	// Comment reply
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

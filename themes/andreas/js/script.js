@@ -156,12 +156,6 @@ snippets.forEach((snippet, index) => {
 	);
 });
 
-Fancybox.bind("[data-fancybox='project-gallery']", {
-					Toolbar: false,
-					animated: true,
-					dragToClose: true
-				});
-
 
 	
 });

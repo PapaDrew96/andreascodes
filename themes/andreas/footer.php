@@ -15,7 +15,7 @@ $secondary_menu_label = get_field('secondary_menu_label','option');
 
 ?>
 
-	<footer id="colophon" class="site-footer py-5 mt-5 border-top">
+	<footer id="colophon" class="site-footer py-5 border-top">
 	<div class="container">
 		<div class="row justify-content-between align-items-start g-5">
 			<div class="col-md-4 align-items-start">
