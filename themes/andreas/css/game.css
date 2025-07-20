@@ -1,0 +1,151 @@
+/* Wrapper */
+.game-wrapper {
+	max-width: 100%;
+	padding: 60px 20px;
+	text-align: center;
+	background: radial-gradient(ellipse at center, #111 0%, #000 100%);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	position: relative; /* for absolute positioning of toggle */
+}
+
+/* Canvas */
+canvas#catch-the-stack {
+	display: none;
+	margin: 0 auto;
+	border: 2px solid #00ffaa;
+	background-color: #000;
+	box-shadow: 0 0 20px rgba(0, 255, 170, 0.4);
+	border-radius: 10px;
+	width: 100%;
+	max-width: 800px;
+	height: auto;
+	touch-action: none; /* disable scroll while playing */
+}
+
+/* Instructions */
+.game-instructions {
+	color: #e0fce3;
+	font-family: monospace;
+	text-align: center;
+	margin-bottom: 30px;
+	padding: 10px 20px;
+	max-width: 600px;
+	line-height: 1.6;
+	text-shadow: 0 0 3px rgba(0, 255, 170, 0.2);
+	box-sizing: border-box;
+}
+
+.game-instructions h2 {
+	font-size: 1.6rem;
+	margin-bottom: 10px;
+	color: #00ffaa;
+	text-shadow: 0 0 6px rgba(0, 255, 170, 0.7);
+}
+
+.game-instructions p {
+	font-size: 1.05rem;
+	color: #c7ffe6;
+	margin: 6px 0;
+	text-shadow: 0 0 4px rgba(0, 255, 170, 0.3);
+}
+
+/* Start Button */
+#start-game-btn {
+	padding: 12px 28px;
+	font-size: 1rem;
+	font-family: monospace;
+	color: #00ffaa;
+	background: transparent;
+	border: 2px solid #00ffaa;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	z-index: 10;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+#start-game-btn:hover {
+	background: #00ffaa;
+	color: #000;
+	box-shadow: 0 0 12px #00ffaa66;
+	transform: scale(1.05);
+}
+
+/* Sound Toggle Button */
+#toggle-sound {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background: #111;
+	border: 2px solid #00ffaa;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 10000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	box-shadow: 0 0 10px rgba(0, 255, 170, 0.4);
+	transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+#toggle-sound:hover {
+	background: #00ffaa;
+	border-color: #00ffaa;
+}
+
+#toggle-sound img {
+	width: 36px;
+	height: 36px;
+	display: block;
+	filter: drop-shadow(0 0 5px rgba(0, 255, 170, 0.6));
+	transition: transform 0.2s ease;
+}
+
+#toggle-sound:hover img {
+	transform: scale(1.1);
+}
+
+
+/* Responsive Tweaks */
+@media screen and (max-width: 768px) {
+	.game-wrapper {
+		padding: 40px 10px;
+	}
+
+	.game-instructions {
+		padding: 8px 12px;
+		max-width: 90%;
+	}
+
+	.game-instructions h2 {
+		font-size: 1.3rem;
+	}
+
+	.game-instructions p {
+		font-size: 1rem;
+	}
+
+	#start-game-btn {
+		padding: 10px 20px;
+		font-size: 0.9rem;
+	}
+
+	#toggle-sound {
+		top: 12px;
+		right: 12px;
+		padding: 8px;
+	}
+
+	#toggle-sound img {
+		width: 32px;
+		height: 32px;
+	}
+}

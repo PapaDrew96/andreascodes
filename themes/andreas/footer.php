@@ -18,7 +18,7 @@ $secondary_menu_label = get_field('secondary_menu_label','option');
 	<footer id="colophon" class="site-footer py-5 mt-5 border-top">
 	<div class="container">
 		<div class="row justify-content-between align-items-start g-5">
-			<div class="col-md-4">
+			<div class="col-md-4 align-items-start">
 				<h5 class="mb-3"><?php echo esc_html($primar_menu_label); ?></h5>
 				<?php
 				wp_nav_menu([
@@ -29,7 +29,7 @@ $secondary_menu_label = get_field('secondary_menu_label','option');
 				?>
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-md-4 align-items-start">
 				<h5 class="mb-3"><?php echo esc_html($secondary_menu_label); ?></h5>
 				<?php
 				wp_nav_menu([
@@ -40,26 +40,35 @@ $secondary_menu_label = get_field('secondary_menu_label','option');
 				?>
 			</div>
 
-			<div class="col-md-4">
-				<h5 class="mb-3">Connect</h5>
-				<?php if($footer_socials): ?>
-                                    <div class="social-source d-flex flex-lg-column flex-row flex-wrap align-items-center align-items-md-start justify-content-center justify-content-sm-start column-gap-sm-4">
-                                        <ul class="nav social-icon flex-row align-items-center column-gap-sm-4">
-                                            <?php foreach($footer_socials as $social): 
-                                                $icon = $social['social_icon'];
-                                                $url  = $social['social_url'];
-                                            ?>
-                                                <li class="nav-items">
-                                                    <a href="<?php echo esc_url($url); ?>" class="nav-link" target="_blank">
-                                                        <img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>" />
-                                                    </a>
-                                                </li>
-                                            <?php endforeach; ?>
-                                        </ul>
+			<div class="col-md-4 align-items-start">
+	<h5 class="mb-3">Connect</h5>
 
-                                        
-									<?php endif; ?>
-			</div>
+	<?php if ($footer_socials): ?>
+		<div class="social-source d-flex flex-lg-column flex-row flex-wrap align-items-start justify-content-sm-start column-gap-sm-4">
+			<ul class="nav social-icon flex-row align-items-center gap-3">
+				<?php foreach ($footer_socials as $social): 
+					$icon = $social['social_icon'];
+					$url  = $social['social_url']; // now coming from a text field
+
+					if ($icon && $url):
+						$href = filter_var($url, FILTER_SANITIZE_URL); // still sanitize it
+						$icon_url = esc_url($icon['url']);
+						$icon_alt = esc_attr($icon['alt']);
+				?>
+					<li class="nav-item">
+						<a href="<?php echo esc_attr($href); ?>" class="nav-link p-0"
+						   <?php echo (strpos($href, 'http') === 0) ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
+							<img src="<?php echo $icon_url; ?>" alt="<?php echo $icon_alt; ?>" style="width: 24px; height: 24px;" />
+						</a>
+					</li>
+				<?php 
+					endif;
+				endforeach; ?>
+			</ul>
+		</div>
+	<?php endif; ?>
+</div>
+
 
 			<!-- <div class="col-md-4">
 				<h5 class="mb-3">From Me</h5>

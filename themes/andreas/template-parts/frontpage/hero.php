@@ -19,7 +19,7 @@ $bg_url      = $background ? $background['url'] : '';
 			<?php endif; ?>
 
 			<?php if ($cta_text && $cta_link): ?>
-				<a href="<?php echo esc_url($cta_link); ?>" class="btn btn-primary btn-lg assign-btn magnetic">
+				<a target="_blank" href="<?php echo esc_url($cta_link); ?>" class="btn btn-primary btn-lg assign-btn magnetic">
 					<?php echo esc_html($cta_text); ?>
 				</a>
 			<?php endif; ?>

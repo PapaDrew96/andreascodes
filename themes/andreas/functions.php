@@ -139,95 +139,85 @@ add_action( 'widgets_init', 'andreas_widgets_init' );
  * Enqueue scripts and styles.
  */
 function andreas_scripts() {
-				// Main theme stylesheet
-				wp_enqueue_style( 'andreas-style', get_stylesheet_uri(), array(), _S_VERSION );
-				wp_style_add_data( 'andreas-style', 'rtl', 'replace' );
+	// Main theme stylesheet
+	wp_enqueue_style( 'andreas-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_style_add_data( 'andreas-style', 'rtl', 'replace' );
 
-				// Custom theme CSS
-				wp_enqueue_style( 'andreas-styles', get_template_directory_uri() . '/css/styles.css', array(), _S_VERSION );
+	// Custom theme CSS
+	wp_enqueue_style( 'andreas-styles', get_template_directory_uri() . '/css/styles.css', array(), _S_VERSION );
 
-				// ✅ Bootstrap CSS
-				wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', array(), '5.3.3' );
+	// ✅ Bootstrap CSS
+	wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', array(), '5.3.3' );
 
-				// Swiper CSS
-				wp_enqueue_style(
-					'swiper-css',
-					'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
-					array(),
-					'11.0.0'
-				);
+	// Swiper CSS
+	wp_enqueue_style( 'swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0' );
 
+	wp_enqueue_style( 'fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css', [], null );
 
-				wp_enqueue_style(
-					'fancybox-css',
-					'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css',
-					[],
-					null
-				);
+	// ✅ jQuery
+	wp_enqueue_script( 'jquery' );
 
+	// ✅ Bootstrap JS
+	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '5.3.3', true );
 
-				// ✅ jQuery (comes with WordPress)
-				wp_enqueue_script( 'jquery' );
+	// Theme navigation
+	wp_enqueue_script( 'andreas-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-				// ✅ Bootstrap JS (depends on jQuery)
-				wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '5.3.3', true );
+	// Swiper JS
+	wp_enqueue_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true );
 
-				// Theme navigation JS
-				wp_enqueue_script( 'andreas-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	// GSAP + ScrollTrigger
+	wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', [], '3.12.2', true );
+	wp_enqueue_script( 'gsap-scrolltrigger', 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js', [ 'gsap' ], '3.12.5', true );
 
-				// Swiper JS
-				wp_enqueue_script(
-					'swiper-js',
-					'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
-					array(),
-					'11.0.0',
-					true
-				);
+	// Main site script
+	wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', [ 'jquery', 'swiper-js', 'gsap-scrolltrigger' ], _S_VERSION, true );
 
-				wp_enqueue_script(
-				'gsap',
-				'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js',
-				[],
-				'3.12.2',
-				true
-						);
+	// Fancybox
+	wp_enqueue_script( 'fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js', [], null, true );
 
-			wp_enqueue_script(
-				'gsap-scrolltrigger',
-				'https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js',
-				[ 'gsap' ],
-				'3.12.5',
-				true
-						);
+	// Shader cursor
+	wp_enqueue_script( 'cursor', get_template_directory_uri() . '/js/cursor.js', [], _S_VERSION, true );
 
-			wp_enqueue_script(
-			'script',
-			get_template_directory_uri() . '/js/script.js',
-			[ 'jquery', 'swiper-js' , 'gsap-scrolltrigger' ], // jQuery dependency
+	// ✅ Conditionally load Catch the Stack game only on template
+	if ( is_page_template( 'page-catch-the-stack.php' ) ) {
+		// Enqueue game-specific CSS
+		wp_enqueue_style(
+			'catch-the-stack-style',
+			get_template_directory_uri() . '/css/game.css',
+			[],
+			_S_VERSION
+		);
+
+		// Enqueue game-specific JS
+		wp_enqueue_script(
+			'catch-the-stack',
+			get_template_directory_uri() . '/js/game.js',
+			[],
 			_S_VERSION,
 			true
-			);
+		);
 
+		// Get stack icons
+		$terms = get_terms([
+			'taxonomy' => 'tech_stack',
+			'hide_empty' => false,
+		]);
 
-			wp_enqueue_script(
-				'fancybox-js',
-				'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
-				[],
-				null,
-				true
-			);
+		$stack_icons = [];
 
-			
+		foreach ( $terms as $term ) {
+			$icon = get_field( 'icon', 'tech_stack_' . $term->term_id );
+			if ( $icon && isset( $icon['url'] ) ) {
+				$stack_icons[] = [
+					'name' => $term->name,
+					'url'  => $icon['url'],
+				];
+			}
+		}
 
-			// Shader cursor script (you’ll create this)
-			wp_enqueue_script(
-				'cursor',
-				get_template_directory_uri() . '/js/cursor.js',
-				[],
-				_S_VERSION,
-				true
-			);
-
+		wp_localize_script( 'catch-the-stack', 'STACK_ICONS', $stack_icons );
+	}
 
 	// Comment reply
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -235,6 +225,11 @@ function andreas_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'andreas_scripts' );
+
+function register_rest_routes() {
+	
+}
+
 
 /**
  * Implement the Custom Header feature.

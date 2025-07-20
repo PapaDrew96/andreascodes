@@ -15,11 +15,7 @@ $projects = new WP_Query([
 			<?php while ( $projects->have_posts() ) : $projects->the_post(); ?>
 				<div class="col-md-4">
 					<div class="project-card h-100 shadow-sm border rounded-4 overflow-hidden">
-						<?php if ( has_post_thumbnail() ) : ?>
-							<div class="project-thumb">
-								<?php the_post_thumbnail( 'medium_large', ['class' => 'img-fluid w-100'] ); ?>
-							</div>
-						<?php endif; ?>
+						
 
 						<div class="project-content p-4">
 							<h5 class="mb-2"><?php the_title(); ?></h5>
@@ -43,7 +39,7 @@ $projects = new WP_Query([
 								</div>
 							<?php endif; ?>
 
-							<a href="<?php the_permalink(); ?>" class="btn btn-sm mt-4 assign-btn">View Project</a>
+							
 						</div>
 					</div>
 				</div>
@@ -51,7 +47,7 @@ $projects = new WP_Query([
 		</div>
 
 		<div class="text-center mt-5 custom-btn">
-			<a href="<?php echo esc_url( home_url('/projects') ); ?>" class="btn btn-outline-dark rounded-pill px-4 py-2">See All Projects →</a>
+			<a target="_blank" href="<?php echo esc_url( home_url('/projects') ); ?>" class="btn btn-outline-dark rounded-pill px-4 py-2">See All Projects →</a>
 		</div>
 	</div>
 </section>

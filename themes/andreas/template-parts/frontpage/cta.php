@@ -17,7 +17,7 @@ $bg_url = $cta_background['url'] ?? '';
 		<?php endif; ?>
 
 		<?php if ( $cta_button_text && $cta_button_link ): ?>
-			<a href="<?php echo esc_url($cta_button_link); ?>" class="btn btn-light btn-lg mt-4 px-5 py-3 rounded-pill">
+			<a target="_blank" href="<?php echo esc_url($cta_button_link); ?>" class="btn btn-light btn-lg mt-4 px-5 py-3 rounded-pill">
 				<?php echo esc_html($cta_button_text); ?>
 			</a>
 		<?php endif; ?>

@@ -44,14 +44,14 @@ $snippets = new WP_Query([
 							<?php endif; ?>
 						</div>
 
-						<a href="<?php the_permalink(); ?>" class="view-code small d-block mt-3">View Code →</a>
+						<a target="_blank" href="<?php the_permalink(); ?>" class="magnetic view-code small d-block mt-3 border rounded-pill px-3 py-1">View Code →</a>
 					</article>
 				<?php endwhile; wp_reset_postdata(); ?>
 			</div>
 		</div>
 
 		<div class="text-center mt-4 custom-btn">
-			<a href="<?php echo esc_url( home_url('/code-snippets') ); ?>" class="btn btn-outline-dark rounded-pill px-4 py-2">See All Snippets →</a>
+			<a href="<?php echo esc_url( home_url('/code-snippets') ); ?>" class="btn btn-outline-dark rounded-pill px-4 py-2 magnetic">See All Snippets →</a>
 		</div>
 	</div>
 </section>

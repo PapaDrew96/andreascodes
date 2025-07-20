@@ -18,6 +18,7 @@ body {
     padding: 0;
     height: 100vh;
 	cursor: none !important;
+	height: 100vh;
 }
 
 /* Headings (h1–h6) */
@@ -27,6 +28,31 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 	letter-spacing: -0.5px;
 }
+
+@media screen and (max-width: 768px) {
+	h1 {
+		font-size: 3rem !important;
+	}
+	h2 {
+		font-size: 2.5rem !important;
+	}
+	h3 {
+		font-size: 1.75rem !important;
+	}
+	h4 {
+		font-size: 1.5rem !important;
+	}
+	h5 {
+		font-size: 1.25rem !important;
+	}
+	h6 {
+		font-size: 1rem !important;
+	}
+}
+	
+
+
+
 
 /* Paragraphs */
 p,a, .badge {
@@ -58,7 +84,7 @@ a:hover {
   left: 0;
   width: 42px;
   height: 42px;
-  border: 2px solid var(--juicy-full);
+  border: 2px solid #00ffaa;
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -69,7 +95,7 @@ a:hover {
 #custom-cursor.hovering {
   width: 60px;
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #00ffaa;
 }
 
 .magnetic {
@@ -80,7 +106,7 @@ a:hover {
   position: fixed;
   width: 60px;
   height: 60px;
-  border: 2px solid var(--juicy-full);
+  border: 2px solid #00ffaa;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -373,18 +399,29 @@ a:hover {
    🔹 Hero Section
 ================================= */
 .hero-section {
+	position: relative;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-color: var(--bg-color);
 	min-height: 90vh;
 	transition: background-image 0.5s ease;
-    filter: grayscale(100%);
-   
+	overflow: hidden; /* ensure pseudo stays inside */
 }
 
+.hero-section::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.6); /* adjust opacity here */
+	z-index: 1;
+	pointer-events: none; /* so it doesn't block clicks */
+}
 
+/* Keep content above the overlay */
 .hero-content {
+	position: relative;
+	z-index: 2;
 	max-width: 700px;
 }
 
@@ -884,6 +921,26 @@ a:hover {
 .frontpage-cta-section .btn:hover::after {
 	opacity: 1;
 	
+}
+
+.frontpage-snippets-section .view-code {
+	font-size: 0.9rem;
+	text-decoration: none;
+	color: var(--accent);
+	font-weight: 500;
+	transition: color 0.3s ease;
+	font-family: var(--secondary-font-family) !important;
+	border-color: var(--accent);
+	color: white;
+	background-color: var(--accent);
+}
+
+
+.frontpage-snippets-section .view-code:hover {
+	color: #000;
+	background-color: white;
+	box-shadow: inset 0 0 0 2px var(--accent);
+	/* text-decoration: underline; */
 }
 
 @keyframes sweepGlow {
