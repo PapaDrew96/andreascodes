@@ -4,7 +4,7 @@
     --subtle-text: #6c757d;
     --accent: #000;
     --section-padding: 6rem;
-    --font-family: 'Roboto Mono', monospace;
+    --font-family: 'Marcelus', monospace;
 	--secondary-font-family: 'Geologica', sans-serif;
 	--juicy: rgba(0, 191, 255, 0.5);
 	--juicy-full: rgba(0, 191, 255, 1);
@@ -57,9 +57,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Paragraphs */
 p,a, .badge {
 	font-family: var(--secondary-font-family) !important;
-	line-height: 1.6;
+	line-height: 1.8;
 	color: var(--text-color);
 	margin-bottom: 1.25rem;
+	font-size: 20px !important;
 }
 
 a:hover {
@@ -415,7 +416,7 @@ a:hover {
 	content: '';
 	position: absolute;
 	inset: 0;
-	background: rgba(0, 0, 0, 0.6); /* adjust opacity here */
+	background: rgba(0, 0, 0, 0.8); /* adjust opacity here */
 	z-index: 1;
 	pointer-events: none; /* so it doesn't block clicks */
 }
@@ -656,7 +657,7 @@ a:hover {
 /* Content */
 .project-content h5 {
 	color: var(--text-color);
-	font-size: 1.25rem;
+	font-size: 1.50rem;
 	font-weight: 600;
 }
 
@@ -702,15 +703,14 @@ a:hover {
 }
 
 
-/* ===============================
-   🔹 Snippets Section
-================================= */
+
 
 /* ===============================
    🔹 Snippets Section
 ================================= */
 
 .frontpage-snippets-section {
+	display: none;
 	padding: 5rem 0;
 	background-color: var(--bg-color);
 }
@@ -1202,7 +1202,6 @@ a:hover {
 
 .snippet-body {
 	padding: 1rem 1.5rem;
-	font-family: 'Roboto Mono', monospace;
 	background-color: #121212;
 	overflow-x: auto;
 	max-height: 300px;
@@ -1247,7 +1246,7 @@ a:hover {
 .about-section {
   padding: 5rem 0;
   background-color: rgba(0, 0, 0, 0.9);
-  font-family: var(--font-family, 'Roboto Mono', monospace);
+  font-family: var(--font-family);
 }
 canvas#particles-js {
   mix-blend-mode: screen;
@@ -1258,9 +1257,16 @@ canvas#particles-js {
 .about-section h1,
 .about-section h2 {
   font-weight: 700;
-  font-family: var(--font-family, 'Roboto Mono', monospace);
+  font-family: var(--font-family);
   color: white;
   margin-bottom: 2rem;
+}
+
+.about-section h5 {
+  font-weight: 700;
+  font-family: var(--font-family);
+  /* color: white;
+  margin-bottom: 2rem; */
 }
 
 /* 🔹 Intro Section */
@@ -1273,6 +1279,7 @@ canvas#particles-js {
 
 .about-section .intro-section p {
 	color: white;
+	font-size: 20px;
 }
 
 .about-section .fun-text {
@@ -1286,6 +1293,10 @@ canvas#particles-js {
 }
 
 /* 🔹 Tech Icons */
+
+.tech-section {
+	display: none;
+}
 .tech-section ul {
   padding-left: 0;
 }
@@ -1326,6 +1337,7 @@ canvas#particles-js {
   border-left: 3px solid #fff;
   margin-bottom: 1.5rem;
   color: white !important;
+  font-size: 20px;
 }
 
 .about-section .timeline li p {
@@ -1349,10 +1361,16 @@ canvas#particles-js {
 }
 
 /* 🔹 Core Values */
+.values-section {
+	padding-top: 3rem ;
+}
+
+
 .values-section .p-4 {
   background-color: #f9f9f9;
   border-left: 4px solid var(--accent, #0d6efd);
   transition: box-shadow 0.3s ease;
+  font-size: 20px;
 }
 
 .values-section .p-4:hover {

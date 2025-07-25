@@ -12,27 +12,8 @@
 						<h5 class="mb-2"><?php the_title(); ?></h5>
 						<p class="small text-muted mb-3"><?php echo wp_trim_words( get_field('summary') ); ?></p>
 
-						<?php
-						$tech_terms = get_the_terms( get_the_ID(), 'tech_stack' );
-						if ( $tech_terms && ! is_wp_error( $tech_terms ) ) : ?>
-							<div class="d-flex flex-wrap gap-2">
-								<?php foreach ( $tech_terms as $term ) :
-									$icon = get_field( 'icon', 'tech_stack_' . $term->term_id );
-									if ( $icon ) : ?>
-									<span class="stack-item d-flex align-items-center gap-1">
-										<img 
-											class="magnetic"
-											src="<?php echo esc_url( $icon['url'] ); ?>" 
-											alt="<?php echo esc_attr( $term->name ); ?>" 
-											title="<?php echo esc_attr( $term->name ); ?>" 
-											width="20" height="20"
-											style="border-radius: 4px;"
-										/>
-										<small class="text-muted"><?php echo esc_html( $term->name ); ?></small>
-									</span>
-								<?php endif; endforeach; ?>
-							</div>
-						<?php endif; ?>
+						
+						
 					</div>
 				</div>
 			<?php endwhile; endif; ?>

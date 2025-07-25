@@ -1,7 +1,10 @@
 <?php
+
+$project_summary = get_field('project_summary');
+
 $projects = new WP_Query([
 	'post_type'      => 'project',
-	'posts_per_page' => 3,
+	'posts_per_page' => 6,
 	'post_status'    => 'publish',
 ]);
 ?>
@@ -20,26 +23,6 @@ $projects = new WP_Query([
 						<div class="project-content p-4">
 							<h5 class="mb-2"><?php the_title(); ?></h5>
 							<p class="small text-muted"><?php the_excerpt(); ?></p>
-
-							<?php
-							$tech_terms = get_the_terms( get_the_ID(), 'tech_stack' );
-							if ( $tech_terms && !is_wp_error( $tech_terms ) ) :
-							?>
-								<div class="project-stack d-flex flex-wrap gap-2 mt-3">
-									<?php foreach ( $tech_terms as $term ) :
-										$icon = get_field( 'icon', 'tech_stack_' . $term->term_id );
-									?>
-										<span class="stack-item d-flex align-items-center gap-2 small text-muted bg-light px-2 py-1 rounded-pill">
-											<?php if ( $icon ) : ?>
-												<img src="<?php echo esc_url( $icon['url'] ); ?>" alt="<?php echo esc_attr( $term->name ); ?>" width="18" height="18" />
-											<?php endif; ?>
-											<?php echo esc_html( $term->name ); ?>
-										</span>
-									<?php endforeach; ?>
-								</div>
-							<?php endif; ?>
-
-							
 						</div>
 					</div>
 				</div>
