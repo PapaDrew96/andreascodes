@@ -24,7 +24,7 @@ body {
 /* Headings (h1–h6) */
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--font-family);
-	font-weight: 700;
+	font-weight: 700 !important;
 	line-height: 1.2;
 	letter-spacing: -0.5px;
 }
@@ -1025,6 +1025,10 @@ a:hover {
 /* Card Grid */
 .project-card-wrapper {
 	transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.project-card-wrapper h5 {
+	font-size: 1.50rem;
 }
 
 /* Project Card */
