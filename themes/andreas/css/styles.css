@@ -183,7 +183,9 @@ a:hover {
     display: none;
 }
 
-
+#primary-menu .menu-item a{
+	font-size: 16px !important;
+}
 /* Branding layout */
 .site-branding {
 	display: flex;
@@ -350,6 +352,7 @@ a:hover {
 	text-decoration: none;
 	transition: color 0.3s ease;
 	font-weight: 400;
+	font-size: 16px !important;
 }
 
 .footer-menu li a:hover {
