@@ -27,9 +27,9 @@ function drawLightning(x1, y1, x2, y2, segments = 50) {
   }
 
   ctx.lineTo(x2, y2);
-  ctx.strokeStyle = "rgba(0, 255, 0, 0.5)";
+  ctx.strokeStyle = "rgba(127, 8, 101, 0.5)";
   ctx.lineWidth = 2;
-  ctx.shadowColor = "#00ff00";
+  ctx.shadowColor = "#7F0865";
   ctx.shadowBlur = 15;
   ctx.stroke();
 }

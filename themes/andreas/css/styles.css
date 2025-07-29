@@ -1281,8 +1281,22 @@ canvas#particles-js {
   max-width: 400px;
   border-radius: 12px;
   margin-top: 2rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 25px rgba(0, 255, 170, 0.4);
+  animation: twinkleShadow 2.5s infinite ease-in-out;
 }
+
+@keyframes twinkleShadow {
+  0% {
+    box-shadow: 0 6px 16px rgba(0, 255, 170, 0.2);
+  }
+  50% {
+    box-shadow: 0 6px 28px rgba(0, 255, 170, 0.8);
+  }
+  100% {
+    box-shadow: 0 6px 16px rgba(0, 255, 170, 0.2);
+  }
+}
+
 
 .about-section .intro-section p {
 	color: white;
